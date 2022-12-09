@@ -11,6 +11,7 @@ Config.PreventFinanceSelling = false -- allow/prevent players from using /transf
 Config.Shops = {
     ['pdm'] = {
         ['Type'] = 'free-use', -- no player interaction is required to purchase a car
+        ['GarageType'] = 'car', -- garagt type for use with CD_Garage
         ['Zone'] = {
             ['Shape'] = {--polygon that surrounds the shop
                 vector2(-56.727394104004, -1086.2325439453),
@@ -81,6 +82,7 @@ Config.Shops = {
     },
     ['luxury'] = {
         ['Type'] = 'managed', -- meaning a real player has to sell the car
+        ['GarageType'] = 'car', -- garagt type for use with CD_Garage
         ['Zone'] = {
             ['Shape'] = {
                 vector2(-1260.6973876953, -349.21334838867),
@@ -142,6 +144,7 @@ Config.Shops = {
     }, -- Add your next table under this comma
     ['boats'] = {
         ['Type'] = 'free-use', -- no player interaction is required to purchase a vehicle
+        ['GarageType'] = 'boat', -- garagt type for use with CD_Garage
         ['Zone'] = {
             ['Shape'] = {--polygon that surrounds the shop
                 vector2(-729.39, -1315.84),
@@ -188,6 +191,7 @@ Config.Shops = {
     },
     ['air'] = {
         ['Type'] = 'free-use', -- no player interaction is required to purchase a vehicle
+        ['GarageType'] = 'air', -- garagt type for use with CD_Garage
         ['Zone'] = {
             ['Shape'] = {--polygon that surrounds the shop
                 vector2(-1607.58, -3141.7),
