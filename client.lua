@@ -426,6 +426,9 @@ RegisterNetEvent('qb-vehicleshop:client:TestDrive', function()
             SetVehicleNumberPlateText(veh, 'TESTDRIVE')
             SetEntityHeading(veh, Config.Shops[tempShop]["TestDriveSpawn"].w)
             TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(veh))
+            if Config.CD_VehicleKeys == true then
+                TriggerEvent('cd_garage:AddKeys', QBCore.Functions.GetPlate(veh))
+            end
             testDriveVeh = netId
             QBCore.Functions.Notify(Lang:t('general.testdrive_timenoti', {testdrivetime = Config.Shops[tempShop]["TestDriveTimeLimit"]}))
         end, Config.Shops[tempShop]["ShowroomVehicles"][ClosestVehicle].chosenVehicle, Config.Shops[tempShop]["TestDriveSpawn"], true)
@@ -448,6 +451,9 @@ RegisterNetEvent('qb-vehicleshop:client:customTestDrive', function(data)
             SetVehicleNumberPlateText(veh, 'TESTDRIVE')
             SetEntityHeading(veh, Config.Shops[tempShop]["TestDriveSpawn"].w)
             TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(veh))
+            if Config.CD_VehicleKeys == true then
+                TriggerEvent('cd_garage:AddKeys', QBCore.Functions.GetPlate(veh))
+            end
             testDriveVeh = netId
             QBCore.Functions.Notify(Lang:t('general.testdrive_timenoti', {testdrivetime = Config.Shops[tempShop]["TestDriveTimeLimit"]}))
         end, vehicle, Config.Shops[tempShop]["TestDriveSpawn"], true)
@@ -658,6 +664,9 @@ RegisterNetEvent('qb-vehicleshop:client:buyShowroomVehicle', function(vehicle, p
         SetVehicleNumberPlateText(veh, plate)
         SetEntityHeading(veh, Config.Shops[tempShop]["VehicleSpawn"].w)
         TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+        if Config.CD_VehicleKeys == true then
+            TriggerEvent('cd_garage:AddKeys', QBCore.Functions.GetPlate(veh))
+        end
         TriggerServerEvent("qb-vehicletuning:server:SaveVehicleProps", QBCore.Functions.GetVehicleProperties(veh))
     end, vehicle, Config.Shops[tempShop]["VehicleSpawn"], true)
 end)
